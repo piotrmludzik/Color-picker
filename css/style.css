@@ -36,3 +36,11 @@ h1 {
     display: inline-block;
     width: 80px;
 }
+
+input {
+    width: 60px;
+}
+
+.color-converter {
+    margin: 40px;
+}
