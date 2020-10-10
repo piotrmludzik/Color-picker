@@ -1,3 +1,5 @@
+import {color} from "./color_converter.js";
+
 export let dom = {
     colorInputs: {
         init: function () {
@@ -24,13 +26,22 @@ export let dom = {
             colorInputs.forEach(colorInput => {
                 rgb[colorInput.id] = colorInput.valueAsNumber;
             });
+
             dom.background.setColor(rgb);
+            dom.hex.setValue(color.rgb_to_hex(rgb));
         }
     },
     background: {
         setColor: function (rgb) {
             // Changes color of the background.
             document.body.style.backgroundColor = `rgb(${rgb['red']}, ${rgb['green']}, ${rgb['blue']})`;
+        }
+    },
+    hex: {
+        setValue: function (hex) {
+            // Display a HEX color value.
+            const hexContainer = document.querySelector('#hex-value');
+            hexContainer.innerHTML = hex;
         }
     }
 }
