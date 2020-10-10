@@ -18,13 +18,19 @@ export let dom = {
             colorInputs.forEach(colorInput => colorInput.addEventListener('input', this.inputChange));
         },
         inputChange: function () {
-            // Changes color of the background.
+            // Performs some actions after changing the value of any RGB input.
             const colorInputs = document.querySelectorAll('.color-input');
-            const rgb = [], red = 0, green = 1, blue = 2;
+            const rgb = {};
             colorInputs.forEach(colorInput => {
-                rgb.push(colorInput.valueAsNumber);
+                rgb[colorInput.id] = colorInput.valueAsNumber;
             });
-            document.body.style.backgroundColor = `rgb(${rgb[red]}, ${rgb[green]}, ${rgb[blue]})`;
+            dom.background.setColor(rgb);
+        }
+    },
+    background: {
+        setColor: function (rgb) {
+            // Changes color of the background.
+            document.body.style.backgroundColor = `rgb(${rgb['red']}, ${rgb['green']}, ${rgb['blue']})`;
         }
     }
 }
