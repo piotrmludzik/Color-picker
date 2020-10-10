@@ -43,3 +43,13 @@ input {
 .color-converter {
     margin: 40px;
 }
+
+.transparency-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px;
+}
+
+#transparency-slider {
+    width: 160px;
+}
