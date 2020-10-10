@@ -1,6 +1,6 @@
 const board = {
     hex: {0: '0', 1: '1',  2: '2',  3: '3',  4: '4',  5: '5',  6: '6', 7: '7',  8: '8',  9: '9', 10: 'A', 11: 'B', 12: 'C', 13: 'D', 14: 'E', 15: 'F'}
-}
+};
 
 export let color = {
     rgb_to_hex: function (rgb) {
@@ -32,5 +32,27 @@ export let color = {
         }
 
         return hex_component['red'] + hex_component['green'] + hex_component['blue'];
+    },
+    convert_decimal: function (decimal, division_base) {
+        /*
+            Converts a decimal number to a binary, octal or hexadecimal number.
+            Conversion steps:
+                1. Divides the number by division base.
+                2. Gets the integer quotient for the next iteration.
+                3. Gets the remainder for the converted digit.
+                4. Repeats the steps until the quotient is equal to 0.
+                5. Reverse the obtained numbers so that the last result is the first number.
+        */
+        const new_number_components = [];
+        divide(decimal);
+        return new_number_components.reverse().join('');
+
+        function divide(decimal) {
+            const integer = Math.floor(decimal / division_base);
+            const remainder = decimal % division_base;
+
+            new_number_components.push(remainder);
+            if (integer > 0) divide(integer);
+        }
     }
 }

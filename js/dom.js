@@ -19,7 +19,7 @@ export let dom = {
             const colorInputs = document.querySelectorAll('.color-input');
             colorInputs.forEach(colorInput => colorInput.addEventListener('input', this.inputChange));
         },
-        inputChange: function () {
+        inputChange: function (event) {
             // Performs some actions after changing the value of any RGB input.
             const colorInputs = document.querySelectorAll('.color-input');
             const rgb = {};
@@ -29,6 +29,7 @@ export let dom = {
 
             dom.background.setColor(rgb);
             dom.hex.setValue(color.rgb_to_hex(rgb));
+            dom.binary.setValue(event.target.id, rgb);
         }
     },
     background: {
@@ -42,6 +43,11 @@ export let dom = {
             // Display a HEX color value.
             const hexContainer = document.querySelector('#hex-value');
             hexContainer.innerHTML = hex;
+        }
+    },
+    binary: {
+        setValue: function (color_name, rgb) {
+            document.querySelector(`#binary-${color_name}-value`).innerHTML = color.convert_decimal(rgb[color_name], 2);
         }
     }
 }
