@@ -5,8 +5,6 @@ export let dom = {
     colorInputs: {
         init: function () {
             // Inits default value and new attributes for the color input fields.
-            document.body.style.backgroundColor = 'rgb(153, 153, 153)';
-
             const colorInputs = document.querySelectorAll('.color-input');
             colorInputs.forEach(colorInput => {
                 colorInput.min = '0';
@@ -14,6 +12,7 @@ export let dom = {
                 colorInput.valueAsNumber = 0;  // TODO: setup default backgrond color from css!
             });
 
+            dom.background.setColor();
             this.initEventListners();
         },
         initEventListners: function () {
@@ -70,7 +69,7 @@ export let dom = {
             if (rgb === null) rgb = dom.colorInputs.getRgbColor();
 
             const sliderValue = document.querySelector('#transparency-slider').value;
-            document.body.style.backgroundColor = `rgba(${rgb['red']}, ${rgb['green']}, ${rgb['blue']}, ${sliderValue / 100})`;
+            document.querySelector('#main-container').style.background = `rgba(${rgb['red']}, ${rgb['green']}, ${rgb['blue']}, ${sliderValue / 100})`;
             dom.transparencySlider.displayValue();
         }
     },

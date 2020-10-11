@@ -5,6 +5,6 @@ init();
 
 
 function init() {
-    dom.colorInputs.init();
     dom.transparencySlider.init();
+    dom.colorInputs.init();
 }

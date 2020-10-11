@@ -9,36 +9,38 @@
     <script type="module" src="js/main.js" defer></script>
 </head>
 <body>
-<div class="main-container">
-    <h1>Color picker</h1>
-    <div class="color-picker">
-        <div class="rgb-picker">
-            <label for="red">Red</label>
-            <input type="number" id="red" class="color-input">
-        </div>
-        <div class="rgb-picker">
-            <label for="blue">Blue</label>
-            <input type="number" id="green" class="color-input">
-        </div>
-        <div class="rgb-picker">
-            <label for="green">Green</label>
-            <input type="number" id="blue" class="color-input">
+    <div id="main-container">
+        <div id="color-container">
+            <h1>Color picker</h1>
+            <div class="color-picker">
+                <div class="rgb-picker">
+                    <label for="red">Red</label>
+                    <input type="number" id="red" class="color-input">
+                </div>
+                <div class="rgb-picker">
+                    <label for="blue">Blue</label>
+                    <input type="number" id="green" class="color-input">
+                </div>
+                <div class="rgb-picker">
+                    <label for="green">Green</label>
+                    <input type="number" id="blue" class="color-input">
+                </div>
+            </div>
+            <div class="color-converter">
+                <p>HEX value: #<span id="hex-value"></span></p>
+                <p>Binary values:</p>
+                <ul>
+                    <li>Red: <span id="binary-red-value"></span></li>
+                    <li>Green: <span id="binary-green-value"></span></li>
+                    <li>Blue: <span id="binary-blue-value"></span></li>
+                </ul>
+            </div>
+            <div class="transparency-container">
+                <label for="transparency-slider">Transparency</label>
+                <input type="range" id="transparency-slider">
+                <output id="transparency-output" for="transparency-slider"></output>
+            </div>
         </div>
     </div>
-    <div class="color-converter">
-        <p>HEX value: #<span id="hex-value"></span></p>
-        <p>Binary values:</p>
-        <ul>
-            <li>Red: <span id="binary-red-value"></span></li>
-            <li>Green: <span id="binary-green-value"></span></li>
-            <li>Blue: <span id="binary-blue-value"></span></li>
-        </ul>
-    </div>
-    <div class="transparency-container">
-        <label for="transparency-slider">Transparency</label>
-        <input type="range" id="transparency-slider">
-        <output id="transparency-output" for="transparency-slider"></output>
-    </div>
-</div>
 </body>
 </html>
