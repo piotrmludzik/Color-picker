@@ -9,7 +9,7 @@ export let dom = {
             colorInputs.forEach(colorInput => {
                 colorInput.min = '0';
                 colorInput.max = '255';
-                colorInput.valueAsNumber = 0;  // TODO: setup default backgrond color from css!
+                colorInput.valueAsNumber = 153;
             });
 
             dom.background.setColor();
